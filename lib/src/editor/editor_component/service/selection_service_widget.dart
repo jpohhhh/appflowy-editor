@@ -30,7 +30,7 @@ class _SelectionServiceWidgetState extends State<SelectionServiceWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (PlatformExtension.isDesktopOrWeb) {
+    if (true) {
       return DesktopSelectionServiceWidget(
         key: forwardKey,
         cursorColor: widget.cursorColor,
