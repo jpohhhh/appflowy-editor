@@ -7,6 +7,7 @@ final builtInContextMenuItems = [
     ContextMenuItem(
       name: 'Cut',
       onPressed: (editorState) {
+        print('cut pressed');
         handleCut(editorState);
       },
     ),
@@ -14,6 +15,7 @@ final builtInContextMenuItems = [
     ContextMenuItem(
       name: 'Copy',
       onPressed: (editorState) {
+        print('copy pressed');
         handleCopy(editorState);
       },
     ),
@@ -21,6 +23,7 @@ final builtInContextMenuItems = [
     ContextMenuItem(
       name: 'Paste',
       onPressed: (editorState) {
+        print('paste pressed');
         handlePaste(editorState);
       },
     ),
