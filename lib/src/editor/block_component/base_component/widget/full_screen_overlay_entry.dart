@@ -25,7 +25,7 @@ class FullScreenOverlayEntry {
     _entry?.remove();
     _entry = OverlayEntry(
       builder: (context) {
-        final size = MediaQuery.of(context).size;
+        final size = MediaQuery.sizeOf(context);
         return SizedBox.fromSize(
           size: size,
           child: Stack(

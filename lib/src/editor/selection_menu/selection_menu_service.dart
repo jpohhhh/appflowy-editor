@@ -94,7 +94,7 @@ class SelectionMenu extends SelectionMenuService {
     _topLeft = offset;
     _offset = Offset(
       offset.dx,
-      showBelow ? offset.dy : MediaQuery.of(context).size.height - offset.dy,
+      showBelow ? offset.dy : MediaQuery.sizeOf(context).height - offset.dy,
     );
 
     _selectionMenuEntry = OverlayEntry(

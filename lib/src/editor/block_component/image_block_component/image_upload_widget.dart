@@ -46,7 +46,7 @@ void showImageMenu(
     builder: (context) => UploadImageMenu(
       backgroundColor: menuService.style.selectionMenuBackgroundColor,
       headerColor: menuService.style.selectionMenuItemTextColor,
-      width: MediaQuery.of(context).size.width * 0.4,
+      width: MediaQuery.sizeOf(context).width * 0.4,
       onSubmitted: insertImage,
       onUpload: insertImage,
     ),

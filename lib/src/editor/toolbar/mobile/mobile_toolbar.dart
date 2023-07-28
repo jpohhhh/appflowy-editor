@@ -120,7 +120,7 @@ class MobileToolbarWidgetState extends State<MobileToolbarWidget>
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.sizeOf(context).width;
     final style = MobileToolbarStyle.of(context);
     return Column(
       children: [

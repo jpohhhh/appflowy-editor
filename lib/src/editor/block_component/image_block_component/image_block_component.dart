@@ -139,7 +139,7 @@ class ImageBlockComponentWidgetState extends State<ImageBlockComponentWidget>
       attributes[ImageBlockKeys.align] ?? 'center',
     );
     final width = attributes[ImageBlockKeys.width]?.toDouble() ??
-        MediaQuery.of(context).size.width;
+        MediaQuery.sizeOf(context).width;
     final height = attributes[ImageBlockKeys.height]?.toDouble();
 
     Widget child = ResizableImage(
