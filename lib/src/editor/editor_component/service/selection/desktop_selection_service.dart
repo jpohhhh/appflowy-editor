@@ -531,12 +531,17 @@ class _DesktopSelectionServiceWidgetState
     final baseOffset =
         editorState.renderBox?.localToGlobal(Offset.zero) ?? Offset.zero;
     final offset = details.globalPosition + const Offset(10, 10) - baseOffset;
+    keepEditorFocusNotifier.value += 1;
+
     final contextMenu = OverlayEntry(
       builder: (context) => ContextMenu(
         position: offset,
         editorState: editorState,
         items: builtInContextMenuItems,
-        onPressed: () => _clearContextMenu(),
+        onPressed: () {
+          _clearContextMenu();
+          keepEditorFocusNotifier.value -= 1;
+        },
       ),
     );
 
