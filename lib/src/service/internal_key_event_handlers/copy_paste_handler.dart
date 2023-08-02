@@ -240,7 +240,6 @@ void handlePaste(EditorState editorState) async {
 
   return (
     Node(
-      id: node.id,
       parent: node.parent,
       children: node.children,
       type: node.type,

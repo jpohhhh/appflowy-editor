@@ -2,7 +2,6 @@ import 'dart:collection';
 
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flutter/material.dart';
-import 'package:nanoid/nanoid.dart';
 
 /// [Node] represents a node in the document tree.
 ///
@@ -21,7 +20,6 @@ import 'package:nanoid/nanoid.dart';
 final class Node extends ChangeNotifier with LinkedListEntry<Node> {
   Node({
     required this.type,
-    String? id,
     this.parent,
     Attributes attributes = const {},
     Iterable<Node> children = const [],
@@ -31,8 +29,7 @@ final class Node extends ChangeNotifier with LinkedListEntry<Node> {
               (e) => e..unlink(),
             ),
           ), // unlink the given children to avoid the error of "node has already a parent"
-        _attributes = attributes,
-        id = id ?? nanoid(10) {
+        _attributes = attributes {
     for (final child in this.children) {
       child.parent = this;
     }
@@ -56,9 +53,6 @@ final class Node extends ChangeNotifier with LinkedListEntry<Node> {
 
   /// The type of the node.
   final String type;
-
-  /// The id of the node.
-  final String id;
 
   @Deprecated('Use type instead')
   String get subtype => type;
@@ -173,7 +167,7 @@ final class Node extends ChangeNotifier with LinkedListEntry<Node> {
 
   @override
   String toString() {
-    return '''Node(id: $id,
+    return '''Node(
     type: $type,
     attributes: $attributes,
     children: $children,
@@ -212,7 +206,6 @@ final class Node extends ChangeNotifier with LinkedListEntry<Node> {
   }) {
     final node = Node(
       type: type ?? this.type,
-      id: nanoid(10),
       attributes: attributes ?? {...this.attributes},
       children: children ?? [],
     );
@@ -246,7 +239,6 @@ final class TextNode extends Node {
           type: 'text',
           children: children?.toList() ?? [],
           attributes: attributes ?? {},
-          id: '',
         );
 
   TextNode.empty({Attributes? attributes})
